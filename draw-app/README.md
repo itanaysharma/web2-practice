@@ -82,3 +82,12 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## Notes
+
+1. Initialized an empty turborepo
+2. Deleted the docs app
+3. Added http-backend, ws-backend folders
+4. Added package.json in both the places
+5. Added tsconfig.json in both the places, and imported it from @repo/typescript-config/base.json
+6. added @repo/typescript as dependency in both ws-backend and http-backend package.json and then ran pnpm install to bring the dependencies.
