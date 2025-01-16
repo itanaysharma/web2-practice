@@ -91,3 +91,5 @@ Learn more about the power of Turborepo:
 4. Added package.json in both the places
 5. Added tsconfig.json in both the places, and imported it from @repo/typescript-config/base.json
 6. added @repo/typescript as dependency in both ws-backend and http-backend package.json and then ran pnpm install to bring the dependencies.
+7. added build, dev and start script on package.json also added compiler options in tsconfig so we can maintain a structure.
+8. Now done pnpm add express @types/express in http-backend folder and pnpm add ws @types/ws in ws-backend folder and added one basic express and websocket code
