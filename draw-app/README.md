@@ -94,3 +94,4 @@ Learn more about the power of Turborepo:
 7. added build, dev and start script on package.json also added compiler options in tsconfig so we can maintain a structure.
 8. Now done pnpm add express @types/express in http-backend folder and pnpm add ws @types/ws in ws-backend folder and added one basic express and websocket code
 9. added basic sinin, singnup and some othe basic apis and added a middleware who decodes the jwt token
+10. Added jwt verify/ decoder on the websocket layer.
