@@ -95,3 +95,14 @@ Learn more about the power of Turborepo:
 8. Now done pnpm add express @types/express in http-backend folder and pnpm add ws @types/ws in ws-backend folder and added one basic express and websocket code
 9. added basic sinin, singnup and some othe basic apis and added a middleware who decodes the jwt token
 10. Added jwt verify/ decoder on the websocket layer.
+11. removed config.ts as it was on two location and repeating, instead created a new folder backend-common and follow below commands
+    - pnpm init
+    - created tsconfig.json added things there
+    - changed the name of package.json to @repo
+    - added the devdependencies that are added in the tsconfig.json
+    - ran pnpm install on root level
+    - now created src folder and added index.ts added the env
+    - adding env wants to install pnpm @types/node
+    - added export of rthat index.ts with a name as /config
+    - added these dependencis to http-backend and ws-backend package.json
+12. Now did the same to create a new folder for zod
