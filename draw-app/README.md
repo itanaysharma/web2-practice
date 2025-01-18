@@ -116,3 +116,5 @@ Learn more about the power of Turborepo:
     - now create and export instance of prisma client and add export in package.json
     - change name of package.json in db folder
     - add dependency of this package name in http-backend
+14. Now add db in signup,signin and room
+15. created a differnet function for the jwt validation in ws-server
