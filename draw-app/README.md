@@ -109,3 +109,8 @@ Learn more about the power of Turborepo:
 13. created a packages.db folder and followed the similar procedure
     - pnpm install prisma
     - npx prisma init (This will initialize empty prisma)
+    - defined the schema.
+    - Update the database url in db/.env
+    - now migrate npx prisma migrate dev --name init_schema
+    - npx prisma generate (This command will create a client and install client dependencies in node_modules/@prisma/client)
+    - now create and export instance of prisma client and add export in package.json
