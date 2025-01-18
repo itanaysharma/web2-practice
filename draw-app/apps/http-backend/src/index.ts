@@ -1,8 +1,8 @@
 //8. to intall express here you must go to the http-backend folder and run pnpm add express @types/express
 import express from "express";
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "./config";
 import { middleware } from "./middleware";
+import { JWT_SECRET } from "@repo/backend-common/config";
 const app = express();
 
 app.post("/signup", (req, res) => {
