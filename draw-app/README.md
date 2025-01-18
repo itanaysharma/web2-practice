@@ -114,3 +114,5 @@ Learn more about the power of Turborepo:
     - now migrate npx prisma migrate dev --name init_schema
     - npx prisma generate (This command will create a client and install client dependencies in node_modules/@prisma/client)
     - now create and export instance of prisma client and add export in package.json
+    - change name of package.json in db folder
+    - add dependency of this package name in http-backend
