@@ -106,3 +106,6 @@ Learn more about the power of Turborepo:
     - added export of rthat index.ts with a name as /config
     - added these dependencis to http-backend and ws-backend package.json
 12. Now did the same to create a new folder for zod
+13. created a packages.db folder and followed the similar procedure
+    - pnpm install prisma
+    - npx prisma init (This will initialize empty prisma)
