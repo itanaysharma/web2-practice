@@ -118,3 +118,11 @@ Learn more about the power of Turborepo:
     - add dependency of this package name in http-backend
 14. Now add db in signup,signin and room
 15. created a differnet function for the jwt validation in ws-server
+16. Bad approch for state management in ws using array of objects
+    - const user =[{
+    - userId:1,
+    - rooms:["room1","room2"],
+    - ws: socket
+    - }]
+17. Adding the User array to contain all the states (User that are forming connection)
+18. added supported operations join-room, leave-room and chat

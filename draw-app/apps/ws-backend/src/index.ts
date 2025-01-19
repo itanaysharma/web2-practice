@@ -1,18 +1,28 @@
 //8. went into the ws-backend folder and ran pnpm add ws @types/ws to install websocket
 
-import { WebSocketServer } from "ws";
+import { WebSocketServer, WebSocket } from "ws";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
 const wss = new WebSocketServer({ port: 8080 });
+interface User {
+  ws: WebSocket;
+  rooms: string[];
+  userId: string;
+}
+const users: User[] = [];
 function checkUser(token: string) {
-  const decoded = jwt.verify(token, JWT_SECRET);
-  if (typeof decoded === "string") {
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    if (typeof decoded === "string") {
+      return null;
+    }
+    if (!decoded || !decoded.userId) {
+      return null;
+    }
+    return decoded.userId;
+  } catch (e) {
     return null;
   }
-  if (!decoded || !decoded.userId) {
-    return null;
-  }
-  return decoded.userId;
 }
 wss.on("connection", function connection(ws, request) {
   const url = request.url; // this is the url that the client is connecting to
@@ -27,7 +37,40 @@ wss.on("connection", function connection(ws, request) {
     ws.close();
     return;
   }
+
+  users.push({
+    userId,
+    rooms: [],
+    ws,
+  });
   ws.on("message", function message(data) {
-    ws.send("pong");
+    const parsedData = JSON.parse(data.toString()); //{type: "join-room", roomId: "123"}
+
+    if (parsedData.type === "join-room") {
+      const user = users.find((x) => x.ws === ws);
+      user?.rooms.push(parsedData.roomId);
+    }
+    if (parsedData.type === "leave-room") {
+      const user = users.find((x) => x.ws === ws);
+      if (!user) {
+        return;
+      }
+      user.rooms = user?.rooms.filter((x) => x !== parsedData.roomId);
+    }
+    if (parsedData.type === "chat") {
+      const roomId = parsedData.roomId;
+      const message = parsedData.message;
+      users.forEach((user) => {
+        if (user.rooms.includes(roomId)) {
+          user.ws.send(
+            JSON.stringify({
+              type: "chat",
+              message,
+              roomId,
+            })
+          );
+        }
+      });
+    }
   });
 });
