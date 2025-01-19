@@ -126,3 +126,5 @@ Learn more about the power of Turborepo:
     - }]
 17. Adding the User array to contain all the states (User that are forming connection)
 18. added supported operations join-room, leave-room and chat
+19. adding db in ws
+20. Added a chats room Id check point in http-backend so that all the chats in the room can be seen
