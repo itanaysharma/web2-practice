@@ -128,3 +128,5 @@ Learn more about the power of Turborepo:
 18. added supported operations join-room, leave-room and chat
 19. adding db in ws
 20. Added a chats room Id check point in http-backend so that all the chats in the room can be seen
+21. Now adding UI
+22. Complete portion in web folder is for front end

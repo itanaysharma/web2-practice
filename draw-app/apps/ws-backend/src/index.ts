@@ -33,6 +33,7 @@ wss.on("connection", function connection(ws, request) {
   const queryParam = new URLSearchParams(url.split("?")[1]);
   const token = queryParam.get("token") || "";
   const userId = checkUser(token);
+  console.log(userId);
   if (!userId) {
     ws.send("Unauthorized");
     ws.close();
